@@ -1,6 +1,7 @@
 import spacetime from "spacetime"
 import timezone from "spacetime-informal"
 import { motion } from "framer-motion"
+import { NextSeo } from "next-seo"
 import Footer from "../../components/Footer"
 
 function decode(t) {
@@ -36,6 +37,29 @@ const Time = props => {
 
   return (
     <div>
+      <NextSeo
+        title={`${time.time()} ${
+          remoteTz.standard ? remoteTz.standard.abbrev : remoteTz.standard.iana
+        } In my timezone`}
+        description="Enter a time, get a shareable url where people can see the time you submitted in their own timezone."
+        canonical="https://in-my-tz.now.sh"
+        openGraph={{
+          url: "https://in-my-tz.now.sh",
+          title: `${time.time()} ${
+            remoteTz.standard
+              ? remoteTz.standard.abbrev
+              : remoteTz.standard.iana
+          } In my timezone`,
+          description:
+            "Enter a time, get a shareable url where people can see the time you submitted in their own timezone.",
+          images: [],
+          site_name: "In my timezone",
+        }}
+        twitter={{
+          handle: "@zealigan",
+          cardType: "summary_large_image",
+        }}
+      />
       <motion.a
         style={{
           border: "2px solid transparent",

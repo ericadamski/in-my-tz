@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Head from "next/head"
+import { NextSeo } from "next-seo"
 import spacetime from "spacetime"
 import timezone from "spacetime-informal"
 
@@ -94,8 +95,26 @@ const Home = () => {
         <title>In My Timezone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        title="In my timezone"
+        description="Enter a time, get a shareable url where people can see the time you submitted in their own timezone."
+        canonical="https://in-my-tz.now.sh"
+        openGraph={{
+          url: "https://in-my-tz.now.sh",
+          title: "In my timezone",
+          description:
+            "Enter a time, get a shareable url where people can see the time you submitted in their own timezone.",
+          images: [],
+          site_name: "In my timezone",
+        }}
+        twitter={{
+          handle: "@zealigan",
+          cardType: "summary_large_image",
+        }}
+      />
       <textarea
         ref={copyEl}
+        readOnly
         style={{
           position: "fixed",
           top: "-200vh",
